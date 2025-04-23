@@ -1,64 +1,62 @@
+'use client';
+
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-function MyApp({ Component, pageProps }) {
+export default function AppEffects() {
   useEffect(() => {
     const animateOnScroll = () => {
       const elements = document.querySelectorAll('.fade-in');
-      
       elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
+        const el = element as HTMLElement;
+        const elementPosition = el.getBoundingClientRect().top;
         const screenPosition = window.innerHeight / 1.2;
-        
+
         if (elementPosition < screenPosition) {
-          element.style.opacity = '1';
-          element.style.transform = 'translateY(0)';
+          el.classList.add('opacity-100', 'translate-y-0');
         }
       });
     };
-    
-    const handleSmoothScroll = (e) => {
-      if (e.target.closest('a[href^="#"]')) {
+
+    const handleSmoothScroll = (e: MouseEvent) => {
+      const link = (e.target as HTMLElement).closest('a[href^="#"]');
+      if (link) {
         e.preventDefault();
-        
-        const targetId = e.target.closest('a').getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
+        const targetId = link.getAttribute('href');
+        const target = document.querySelector(targetId!) as HTMLElement;
+        if (target) {
           window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
+            top: target.offsetTop - 80,
+            behavior: 'smooth',
           });
         }
       }
     };
-    
+
     const handleScrollHighlight = () => {
       const scrollPosition = window.scrollY;
-      
       document.querySelectorAll('section').forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        const sec = section as HTMLElement;
+        const top = sec.offsetTop - 100;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute('id');
+        if (scrollPosition >= top && scrollPosition < top + height) {
           document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active-nav');
-            if (link.getAttribute('href') === `#${sectionId}`) {
+            if (link.getAttribute('href') === `#${id}`) {
               link.classList.add('active-nav');
             }
           });
         }
       });
     };
-    
+
     window.addEventListener('load', animateOnScroll);
     window.addEventListener('scroll', animateOnScroll);
     window.addEventListener('scroll', handleScrollHighlight);
     document.addEventListener('click', handleSmoothScroll);
-    
+
     return () => {
       window.removeEventListener('load', animateOnScroll);
       window.removeEventListener('scroll', animateOnScroll);
@@ -66,22 +64,17 @@ function MyApp({ Component, pageProps }) {
       document.removeEventListener('click', handleSmoothScroll);
     };
   }, []);
-  
+
   return (
-    <>
-      <Component {...pageProps} />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        pauseOnFocusLoss
-        pauseOnHover
-        closeOnClick
-        draggable
-        theme="light"
-      />
-    </>
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      closeOnClick
+      pauseOnHover
+      draggable
+      pauseOnFocusLoss
+      theme="light"
+    />
   );
 }
-
-export default MyApp;

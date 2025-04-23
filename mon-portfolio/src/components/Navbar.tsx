@@ -7,6 +7,7 @@ import { FaMoon, FaSun, FaBars } from 'react-icons/fa';
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [activeLink, setActiveLink] = useState<string>('home');
 
   useEffect(() => {
     if (localStorage.getItem('darkMode') === 'true' || 
@@ -24,6 +25,31 @@ const Navbar = () => {
       localStorage.setItem('darkMode', 'false');
     }
   }, [darkMode]);
+
+  // Track active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section');
+      let currentSection = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          currentSection = sectionId!;
+        }
+      });
+
+      setActiveLink(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -51,7 +77,7 @@ const Navbar = () => {
                 <Link 
                   key={link.id}
                   href={`#${link.id}`}
-                  className="nav-link px-3 py-2 text-sm font-medium"
+                  className={`nav-link px-3 py-2 text-sm font-medium ${activeLink === link.id ? 'text-blue-600 dark:text-blue-400' : 'text-gray-800 dark:text-gray-100'}`}
                 >
                   {link.label}
                 </Link>
@@ -93,7 +119,7 @@ const Navbar = () => {
             <Link 
               key={link.id}
               href={`#${link.id}`}
-              className="nav-link px-3 py-2 text-sm font-medium"
+              className={`nav-link px-3 py-2 text-sm font-medium ${activeLink === link.id ? 'text-blue-600 dark:text-blue-400' : 'text-gray-800 dark:text-gray-100'}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}

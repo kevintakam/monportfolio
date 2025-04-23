@@ -1,25 +1,16 @@
-// src/app/layout.tsx
-
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../app/globals.css";
+import { GeistSans, GeistMono } from "geist/font";
 
+import AppEffects from "@/components/AppEffects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import "@/styles/animations.css";
+import '@/styles/globals.css';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "Mon Portfolio",
-  description: "Bienvenue sur mon portfolio de développeur web.",
+  title: "Mon Portfolio Créatif",
+  description: "Portfolio de développeur Full Stack & Designer UI/UX",
 };
 
 export default function RootLayout({
@@ -28,10 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="fr" className="scroll-smooth">
+      
+      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300`}>
+      <AppEffects />
         <Navbar />
-        <main>{children}</main>
+        <main className="overflow-hidden">{children}</main>
         <Footer />
       </body>
     </html>

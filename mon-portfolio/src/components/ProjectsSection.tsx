@@ -7,11 +7,10 @@ const projects = [
     title: "Plateforme Eval 360",
     description: "Une platerforme permettant aux étudiants de s'évaluer entre-eux",
     tags: ["Angular", "Node.js", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    image: "/images/eval360-createproject.png",
     category: "Front-end",
     links: {
-      demo: "#",
-      code: "#"
+      demo: "#"
     }
   },
   {
@@ -19,11 +18,10 @@ const projects = [
     title: "Neptune",
     description: "Application Web permettant de générer un persona non humain",
     tags: ["Angular","spring boot", "Firebase", "Mongo Db"],
-    image: "https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    image: "/images/image-neptune.png",
     category: "FullStack",
     links: {
-      demo: "#",
-      code: "#"
+      demo: "https://neptune-personas.org/"
     }
   },
   {
@@ -31,11 +29,10 @@ const projects = [
     title: "Petites annonces",
     description: "Site web permettant aux acheteurs de revendre les produits",
     tags: ["Symfony", "javascript", "Tailwind", "Figma"],
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+    image: "/images/page-accueil.png",
     category: "FullStack",
     links: {
-      demo: "#",
-      code: "#"
+      demo: "#"
     }
   }
 ];
@@ -95,12 +92,6 @@ const ProjectsSection = () => {
                   className="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
                 >
                   <i className="fas fa-external-link-alt mr-1"></i> Live Demo
-                </Link>
-                <Link 
-                  href={project.links.code} 
-                  className="text-gray-600 dark:text-gray-300 hover:underline flex items-center"
-                >
-                  <i className="fab fa-github mr-1"></i> Code
                 </Link>
               </div>
             </div>

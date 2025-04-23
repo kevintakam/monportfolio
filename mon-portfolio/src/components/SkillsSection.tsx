@@ -6,6 +6,7 @@ const SkillsSection = () => {
         items: [
           { name: "HTML5", icon: "fab fa-html5", color: "text-orange-500" },
           { name: "CSS3/Tailwind", icon: "fab fa-css3-alt", color: "text-blue-500" },
+          { name: "Boostrap", icon: "fab fa-boostrap-alt", color: "text-blue-500" },
           { name: "JavaScript", icon: "fab fa-js-square", color: "text-yellow-500" },
           { name: "Angular", icon: "fab fa-angular", color: "text-blue-400" },
           { name: "Vue.js", icon: "fab fa-vuejs", color: "text-green-500" },
@@ -19,6 +20,8 @@ const SkillsSection = () => {
           { name: "MongoDB", icon: "fas fa-database", color: "text-blue-400" },
           { name: "PostgreSQL", icon: "fas fa-database", color: "text-blue-600" },
           { name: "Python", icon: "fab fa-python", color: "text-blue-700" },
+          { name: "CodeIgniter", icon: "fas fa-fire", color: "text-orange-500" },
+          { name: "Symfony", icon: "fas fa-symfony", color: "text-orange-500" },
           { name: "Firebase", icon: "fas fa-fire", color: "text-orange-500" },
         ]
       },
@@ -39,6 +42,7 @@ const SkillsSection = () => {
         items: [
           { name: "Git", icon: "fab fa-git-alt", color: "text-orange-600" },
           { name: "GitHub", icon: "fab fa-github", color: "text-gray-800 dark:text-gray-300" },
+          { name: "GitLab", icon: "fab fa-gitlab", color: "text-gray-800 dark:text-gray-300" },
           { name: "Docker", icon: "fab fa-docker", color: "text-blue-500" },
           { name: "AWS Basics", icon: "fas fa-cloud", color: "text-blue-300" },
           { name: "CLI", icon: "fas fa-terminal", color: "text-gray-600" },

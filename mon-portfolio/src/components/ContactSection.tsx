@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Image from 'next/image';
+import { toast } from 'react-toastify';
 import Link from 'next/link';
 
 const ContactSection = () => {
@@ -14,38 +15,43 @@ const ContactSection = () => {
 
     if (!form.current) return;
 
-    setLoading(true); // Afficher un indicateur de chargement pendant l'envoi.
+    setLoading(true);
 
-    // Récupérer les valeurs du formulaire
+
     const formData = new FormData(form.current);
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const subject = formData.get('subject') as string;
     const message = formData.get('message') as string;
 
-    // Préparer les paramètres de template EmailJS
+
     const templateParams = {
       from_email: email,
       to_email: 'kevintakam128@gmail.com', 
       subject: subject,
       message: `Nom: ${name}\n\nMessage:\n${message}`, 
     };
-
-    console.log(templateParams); 
     emailjs
       .send('service_ej59dyc', 'template_j6vn58q', templateParams, 'aBn8b0mMlpGPJNAYB')
       .then(() => {
-        alert('Message envoyé avec succès !');
+        toast.success('✅ Message envoyé avec succès ! 🎉', {
+          position: 'top-right',
+          autoClose: 3000,
+        });
         form.current?.reset();
       })
       .catch((err) => {
-        alert('Erreur lors de l’envoi du message.');
+        toast.error('❌ Une erreur est survenue lors de l’envoi du message.', {
+          position: 'top-right',
+          autoClose: 4000,
+        });
         console.error('Erreur EmailJS :', err);
-      })
+      })    
       .finally(() => setLoading(false)); 
   };
 
   return (
+    
     <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-12 animate-fade-in">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Contactez-moi</h2>
