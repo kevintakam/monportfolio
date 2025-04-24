@@ -10,7 +10,7 @@ const HeroSection = () => {
             Bonjour, je suis <span className="text-blue-600 dark:text-blue-400">Franck kevin</span>
           </h1>
           <h2 className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
-            Développeur Full Stack & Designer UI/UX
+            Développeur Full Stack 
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
             Je crée des expériences numériques exceptionnelles avec un accent sur le design intuitif et des performances optimales.
