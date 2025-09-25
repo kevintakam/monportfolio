@@ -126,7 +126,7 @@ const ContactSection = () => {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-medium">Adresse</h4>
-                  <p className="text-gray-600 dark:text-gray-300">114 avenue philippe lebon, Toulon, France</p>
+                  <p className="text-gray-600 dark:text-gray-300">156 rue lulli, Toulon, France</p>
                 </div>
               </div>
               <div className="flex items-start">
