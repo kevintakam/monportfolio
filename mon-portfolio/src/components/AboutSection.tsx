@@ -24,41 +24,61 @@ const AboutSection = () => {
         </div>
         
         <div className="md:w-2/3 fade-in delay-2">
-          <h3 className="text-2xl font-semibold mb-4">Mon parcours</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-          Passionné par la technologie depuis mon plus jeune âge, j’ai commencé à coder à 20 ans et n’ai cessé de me perfectionner depuis. Titulaire d’un Bac scientifique, d’un DUT en informatique, ainsi que d’une Licence technologique en informatique, j’ai eu l’opportunité de réaliser plusieurs stages qui m’ont permis d’acquérir des compétences pratiques et d'approfondir ma passion pour le développement web..
-          </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-          Au fil de mes expériences professionnelles, j’ai travaillé avec des startups et des entreprises pour créer des solutions web innovantes, répondant aux besoins spécifiques des clients. Mon parcours m'a permis d’approfondir des technologies modernes et de relever des défis techniques passionnants.
-En dehors de la technologie, je suis également passionné de football, un sport que je pratique depuis l’âge de 7 ans. La musique et les voyages occupent également une place importante dans ma vie, m’inspirant à chaque nouvelle aventure.
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="flex items-center">
-              <div className="mr-3 text-blue-600 dark:text-blue-400">
-                <i className="fas fa-check-circle text-xl"></i>
-              </div>
-              <span className="text-gray-700 dark:text-gray-300">Futur ingénieur(dev Logiciel)</span>
+         <h3 className="text-2xl font-semibold mb-4">Mon parcours</h3>
+
+        <p className="text-gray-600 dark:text-gray-300 mb-6">
+          Ingénieur diplômé en développement logiciel, j’ai construit mon parcours autour de la conception
+          et du développement d’applications web et mobile modernes, performantes et adaptées aux besoins concrets
+          des utilisateurs. Après un Bac Scientifique, un DUT Informatique, une Licence technologique en
+          informatique, puis mon diplôme d’ingénieur, j’ai développé une base solide en développement
+          front-end, back-end, bases de données et conception logicielle.
+        </p>
+
+        <p className="text-gray-600 dark:text-gray-300 mb-6">
+          Mes stages, expériences professionnelles et projets personnels m’ont permis de travailler sur
+          des problématiques réelles : développement d’applications web, création d’interfaces modernes,
+          intégration de bases de données, amélioration de l’expérience utilisateur et réalisation de
+          solutions techniques répondant à des besoins précis. J’accorde une grande importance à la qualité
+          du code, à la rigueur, à la performance et à la maintenabilité des applications.
+        </p>
+
+        <p className="text-gray-600 dark:text-gray-300 mb-6">
+          Aujourd’hui, je me positionne comme développeur logiciel / full stack, avec une appétence
+          particulière pour la création de solutions robustes, évolutives et bien structurées. Mon objectif
+          est de contribuer à des projets ambitieux, où je peux mettre à profit mes compétences techniques,
+          ma capacité d’adaptation et mon sens de l’analyse pour apporter une réelle valeur ajoutée.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="flex items-center">
+            <div className="mr-3 text-blue-600 dark:text-blue-400">
+              <i className="fas fa-check-circle text-xl"></i>
             </div>
-            <div className="flex items-center">
-              <div className="mr-3 text-blue-600 dark:text-blue-400">
-                <i className="fas fa-check-circle text-xl"></i>
-              </div>
-              <span className="text-gray-700 dark:text-gray-300">5 projets réalisés</span>
+            <span className="text-gray-700 dark:text-gray-300">Ingénieur diplômé en développement logiciel</span>
+          </div>
+
+          <div className="flex items-center">
+            <div className="mr-3 text-blue-600 dark:text-blue-400">
+              <i className="fas fa-check-circle text-xl"></i>
             </div>
-            <div className="flex items-center">
-              <div className="mr-3 text-blue-600 dark:text-blue-400">
-                <i className="fas fa-check-circle text-xl"></i>
-              </div>
-              <span className="text-gray-700 dark:text-gray-300">Full Stack Developer</span>
+            <span className="text-gray-700 dark:text-gray-300">Expériences en stages et en entreprise</span>
+          </div>
+
+          <div className="flex items-center">
+            <div className="mr-3 text-blue-600 dark:text-blue-400">
+              <i className="fas fa-check-circle text-xl"></i>
             </div>
-            <div className="flex items-center">
-              <div className="mr-3 text-blue-600 dark:text-blue-400">
-                <i className="fas fa-check-circle text-xl"></i>
-              </div>
-              <span className="text-gray-700 dark:text-gray-300">UI/UX Designer</span>
+            <span className="text-gray-700 dark:text-gray-300">Développement Full Stack</span>
+          </div>
+
+          <div className="flex items-center">
+            <div className="mr-3 text-blue-600 dark:text-blue-400">
+              <i className="fas fa-check-circle text-xl"></i>
             </div>
+            <span className="text-gray-700 dark:text-gray-300">Rigueur, autonomie et adaptation</span>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

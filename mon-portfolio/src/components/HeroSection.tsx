@@ -35,7 +35,7 @@ const HeroSection = () => {
             <div className="absolute inset-0 bg-blue-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
             <div className="absolute inset-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full shadow-2xl flex items-center justify-center">
               <Image 
-                src="/images/mon-image.jpg" 
+                src="/images/photo_diplome.jpeg" 
                 alt="Profile" 
                 width={400}
                 height={400}
