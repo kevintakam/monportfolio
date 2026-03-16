@@ -160,17 +160,17 @@ const ContactSection = () => {
             <div className="mt-8">
               <h4 className="text-lg font-medium mb-4">Réseaux sociaux</h4>
               <div className="flex space-x-4">
-                <Link href="#" className="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition">
+                <Link href="https://www.linkedin.com/in/franck-kevin-takam-7448411b9/" className="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition">
                   <i className="fab fa-linkedin-in"></i>
                 </Link>
                 <Link href="#" className="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-400 hover:text-white transition">
                   <i className="fab fa-twitter"></i>
                 </Link>
-                <Link href="#" className="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-800 hover:text-white transition">
+                <Link href="https://github.com/kevintakam" className="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-800 hover:text-white transition">
                   <i className="fab fa-github"></i>
                 </Link>
-                <Link href="#" className="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-pink-600 hover:text-white transition">
-                  <i className="fab fa-dribbble"></i>
+                <Link href="https://www.instagram.com/franck_kevin_junior/" className="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-pink-600 hover:text-white transition">
+                  <i className="fab fa-instagram"></i>
                 </Link>
               </div>
             </div>

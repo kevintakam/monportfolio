@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans, GeistMono } from "geist/font";
-
+import Script from 'next/script';
 import AppEffects from "@/components/AppEffects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -20,6 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="scroll-smooth">
+      <head>
+      <Script
+          src="//code.tidio.co/lbxj46h2bjhqlhl7azhcma4uegfxe8tb.js"
+          strategy="afterInteractive"
+        />
+      </head>
       
       <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300`}>
       <AppEffects />

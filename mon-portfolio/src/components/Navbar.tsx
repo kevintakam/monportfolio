@@ -8,37 +8,37 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [activeLink, setActiveLink] = useState<string>('home');
+  const [mounted, setMounted] = useState(false);
+
 
   useEffect(() => {
-    if (localStorage.getItem('darkMode') === 'true' || 
-        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      setDarkMode(true);
-    }
+    setMounted(true);
+
+    const savedTheme = localStorage.getItem('theme');
+    const isDark =
+      savedTheme === 'dark' ||
+      (!savedTheme &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    setDarkMode(isDark);
+    document.documentElement.classList.toggle('dark', isDark);
   }, []);
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('darkMode', 'true');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('darkMode', 'false');
-    }
-  }, [darkMode]);
-
-  // Track active section based on scroll position
-  useEffect(() => {
+    useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('section');
       let currentSection = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
+
+      sections.forEach((section) => {
+        const sectionTop = (section as HTMLElement).offsetTop - 100;
+        const sectionHeight = (section as HTMLElement).offsetHeight;
         const sectionId = section.getAttribute('id');
-        
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-          currentSection = sectionId!;
+
+        if (
+          window.scrollY >= sectionTop &&
+          window.scrollY < sectionTop + sectionHeight
+        ) {
+          currentSection = sectionId || '';
         }
       });
 
@@ -46,14 +46,23 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    document.documentElement.classList.toggle('dark', newDarkMode);
+    localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
   };
+
+  if (!mounted) return null;
+
 
   const navLinks = [
     { id: 'home', label: 'Accueil' },
@@ -68,9 +77,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <span className="text-xl font-bold text-blue-600 dark:text-blue-400">Mon Portfolio</span>
-          </div>
-          
+          <Link href="/">
+          <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
+            Mon Portfolio
+          </span>
+        </Link>
+          </div>          
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               {navLinks.map((link) => (
@@ -81,8 +93,7 @@ const Navbar = () => {
                 >
                   {link.label}
                 </Link>
-              ))}
-              
+              ))} 
               <button
                 onClick={toggleDarkMode}
                 className="p-2 rounded-full focus:outline-none"
@@ -91,25 +102,7 @@ const Navbar = () => {
                 {darkMode ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-700" />}
               </button>
             </div>
-          </div>
-          
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 mr-2 rounded-full focus:outline-none"
-              aria-label={darkMode ? 'Désactiver le mode sombre' : 'Activer le mode sombre'}
-            >
-              {darkMode ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-700" />}
-            </button>
-            
-            <button
-              id="mobile-menu-button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200"
-            >
-              <FaBars className="h-6 w-6" />
-            </button>
-          </div>
+          </div>  
         </div>
       </div>
       
