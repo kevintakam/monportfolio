@@ -51,17 +51,17 @@ const Footer = () => {
               <h3 className="text-sm font-semibold text-white uppercase tracking-wider">Ressources</h3>
               <ul className="mt-4 space-y-2">
                 <li>
-                  <Link href="/blog" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-white transition-colors">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link href="/tutoriels" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-white transition-colors">
                     Tutoriels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/documentation" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-white transition-colors">
                     Documentation
                   </Link>
                 </li>
@@ -72,18 +72,13 @@ const Footer = () => {
               <h3 className="text-sm font-semibold text-white uppercase tracking-wider">Légal</h3>
               <ul className="mt-4 space-y-2">
                 <li>
-                  <Link href="/privacy" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-white transition-colors">
                     Confidentialité
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-white transition-colors">
                     Conditions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/cookies" className="hover:text-white transition-colors">
-                    Cookies
                   </Link>
                 </li>
               </ul>
